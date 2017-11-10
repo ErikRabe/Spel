@@ -11,8 +11,7 @@ namespace Spel
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Sprite mSprite;
-
+        Player playerSprite;
 
         public Game1()
         {
@@ -29,7 +28,7 @@ namespace Spel
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            mSprite = new Sprite();
+            playerSprite = new Player();
 
             base.Initialize();
         }
@@ -43,8 +42,8 @@ namespace Spel
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            mSprite.LoadContent(this.Content, "Sprites/Player/Player");
-            mSprite.Position = new Vector2(125, 245);
+            playerSprite.LoadContent(this.Content);
+            
 
 
 
@@ -69,8 +68,8 @@ namespace Spel
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-     
 
+            playerSprite.Update(gameTime);
             // TODO: Add your update logic here
 
             base.Update(gameTime);
@@ -85,7 +84,7 @@ namespace Spel
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             spriteBatch.Begin();
-            mSprite.Draw(this.spriteBatch);
+            playerSprite.Draw(this.spriteBatch);
             spriteBatch.End();
 
 
