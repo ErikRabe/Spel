@@ -11,8 +11,7 @@ namespace Spel
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Vector2 mPosition = new Vector2(0, 0);
-        Texture2D mSpriteTexture;
+        Sprite mSprite;
 
 
         public Game1()
@@ -30,6 +29,7 @@ namespace Spel
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            mSprite = new Sprite();
 
             base.Initialize();
         }
@@ -43,7 +43,8 @@ namespace Spel
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            mSpriteTexture = this.Content.Load<Texture2D>("Sprites/Player/Player");
+            mSprite.LoadContent(this.Content, "Sprites/Player/Player");
+            mSprite.Position = new Vector2(125, 245);
 
 
 
@@ -84,7 +85,7 @@ namespace Spel
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             spriteBatch.Begin();
-            spriteBatch.Draw(mSpriteTexture, mPosition, Color.White);
+            mSprite.Draw(this.spriteBatch);
             spriteBatch.End();
 
 
