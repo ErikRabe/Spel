@@ -2,83 +2,148 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
-
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Spel
 {
-    class Player : Sprite
+    class Player : PhysicalObject
     {
-        enum State
+        
+
+        int frame = 0;
+        double frameBuffer = 0;
+        double animationTime = 0.05;
+        bool direction = false;
+        SpriteEffects fL = SpriteEffects.FlipHorizontally;
+
+
+        public override void Draw(SpriteBatch spriteBatch)
         {
-            Walking
+
+            Rectangle rekt = new Rectangle((texture.Width / 2) * frame, 0, texture.Width / 2, texture.Height);
+            spriteBatch.Draw(texture, vector, rekt, Color.White, 0, Vector2.Zero, Vector2.One, direction ? fL : SpriteEffects.None, 0);
+            //spriteBatch.Draw(texture, vector, Color.White);
+     
+
+
+
+
+
+
+
+
+
         }
-        State mCurrentState = State.Walking;
 
-        Vector2 mDirection = Vector2.Zero;
-        Vector2 mSpeed = Vector2.Zero;
 
-        KeyboardState mPreviousKeyboardState;
-
-        const string PLAYER = "Sprites/Player/Player";
-        const int START_POSITION_X = 125;
-        const int START_POSITION_Y = 245;
-        const int PLAYER_SPEED = 160;
-        const int MOVE_UP = -1;
-        const int MOVE_DOWN = 1;
-        const int MOVE_LEFT = -1;
-        const int MOVE_RIGHT = 1;
-
-        public void LoadContent(ContentManager theContentManager)
+        public void Reset(float X, float Y, float speedX, float speedY)
         {
-            Position = new Vector2(START_POSITION_X, START_POSITION_Y);
-            base.LoadContent(theContentManager, PLAYER);
+            vector.X = X;
+            vector.Y = Y;
+            speed.X = speedX;
+            speed.Y = speedY;
+        
+            isAlive = true;
+
+
         }
 
-        public void Update(GameTime theGameTime)
+
+
+        public Player(Texture2D texture, float X, float Y, float speedX, float speedY ) : base(texture, X, Y, speedX, speedY)
         {
-            KeyboardState aCurrentKeyboardState = Keyboard.GetState();
 
-            UpdateMovement(aCurrentKeyboardState);
+            size = new Vector2(texture.Width / 2, texture.Height);
 
-            mPreviousKeyboardState = aCurrentKeyboardState;
 
-            base.Update(theGameTime, mSpeed, mDirection);
+
         }
-        private void UpdateMovement(KeyboardState aCurrentKeyboardState)
+
+        public void Update(GameWindow window, GameTime gameTime, SoundEffect effect)
         {
-            if (mCurrentState == State.Walking)
+            KeyboardState keyboardState = Keyboard.GetState();
+            Vector2 velocity = Vector2.Zero;
+
+            if (vector.X <= window.ClientBounds.Width - texture.Width / 2 && vector.X >= 0)
             {
-                mSpeed = Vector2.Zero;
-                mDirection = Vector2.Zero;
+                if (keyboardState.IsKeyDown(Keys.Right) || keyboardState.IsKeyDown(Keys.D))
+                {
 
-                if (aCurrentKeyboardState.IsKeyDown(Keys.Left) || aCurrentKeyboardState.IsKeyDown(Keys.A))
-                {
-                    mSpeed.X = PLAYER_SPEED;
-                    mDirection.X = MOVE_LEFT;
-                }
-                else if (aCurrentKeyboardState.IsKeyDown(Keys.Right) || aCurrentKeyboardState.IsKeyDown(Keys.D))
-                {
-                    mSpeed.X = PLAYER_SPEED;
-                    mDirection.X = MOVE_RIGHT;
-                }
+                    velocity.X += speed.X;
+                    vector.X += speed.X;
 
-                if (aCurrentKeyboardState.IsKeyDown(Keys.Up) || aCurrentKeyboardState.IsKeyDown(Keys.W))
-                {
-                    mSpeed.Y = PLAYER_SPEED;
-                    mDirection.Y = MOVE_UP;
                 }
-                else if (aCurrentKeyboardState.IsKeyDown(Keys.Down) || aCurrentKeyboardState.IsKeyDown(Keys.S))
+                if (keyboardState.IsKeyDown(Keys.Left) || keyboardState.IsKeyDown(Keys.A))
                 {
-                    mSpeed.Y = PLAYER_SPEED;
-                    mDirection.Y = MOVE_DOWN;
+
+                    vector.X -= speed.X;
+                    velocity.X -= speed.X;
                 }
             }
+
+            if (vector.Y <= window.ClientBounds.Height - texture.Height && vector.Y >= 0)
+            {
+
+                if (keyboardState.IsKeyDown(Keys.Up) || keyboardState.IsKeyDown(Keys.W))
+                {
+                    velocity.Y += speed.Y;
+                    vector.Y -= speed.Y;
+                }
+            }
+            if (vector.Y <= window.ClientBounds.Height - texture.Height && vector.Y >= 0)
+            {
+                if (keyboardState.IsKeyDown(Keys.Down) || keyboardState.IsKeyDown(Keys.S))
+                {
+                    vector.Y += speed.Y;
+                    velocity.Y += speed.Y;
+
+                }
+            }
+
+            if (vector.X < 0)
+                vector.X = 0;
+            if (vector.X > window.ClientBounds.Width - texture.Width / 2)
+            {
+                vector.X = window.ClientBounds.Width - texture.Width / 2;
+            }
+            if (vector.Y < 0)
+                vector.Y = 0;
+            if (vector.Y > window.ClientBounds.Height - texture.Height)
+            {
+                vector.Y = window.ClientBounds.Height - texture.Height;
+            }
+
+
+
+
+
+
+            
+                if (frameBuffer >= animationTime)
+                {
+                    frameBuffer -= animationTime;
+                    frame++;
+
+                    if (frame >= 2)
+                    {
+                        frame = 0;
+                    }
+                }
+                frameBuffer += gameTime.ElapsedGameTime.TotalSeconds;
+            
+
+        
         }
 
+
+
     }
+   
+
+
+
+
 }

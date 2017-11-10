@@ -48,3 +48,4 @@ C:\Projects\C# projects\Spel\Spel\Spel\obj\x86\Debug\Spel.csprojResolveAssemblyR
 C:\Projects\C# projects\Spel\Spel\Spel\obj\x86\Debug\Spel.csproj.CoreCompileInputs.cache
 C:\Projects\C# projects\Spel\Spel\Spel\obj\x86\Debug\Spel.exe
 C:\Projects\C# projects\Spel\Spel\Spel\obj\x86\Debug\Spel.pdb
+C:\Users\Erik\Documents\Spel\Spel\Spel\bin\Windows\x86\Debug\Content\Sprites\Background\Background.xnb
