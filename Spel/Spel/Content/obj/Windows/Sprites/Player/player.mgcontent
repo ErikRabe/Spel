@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Erik/Documents/Spel/Spel/Spel/Content/Sprites/Player/player.png</SourceFile>
-  <SourceTime>2017-11-10T13:03:29.8925627+01:00</SourceTime>
-  <DestFile>C:/Users/Erik/Documents/Spel/Spel/Spel/Content/bin/Windows/Sprites/Player/player.xnb</DestFile>
-  <DestTime>2017-11-10T13:15:20.1574522+01:00</DestTime>
+  <SourceFile>C:/Projects/C# projects/Spel/Spel/Spel/Content/Sprites/Player/player.png</SourceFile>
+  <SourceTime>2017-11-10T13:56:11.1500915+01:00</SourceTime>
+  <DestFile>C:/Projects/C# projects/Spel/Spel/Spel/Content/bin/Windows/Sprites/Player/player.xnb</DestFile>
+  <DestTime>2017-11-10T14:39:31.2149306+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

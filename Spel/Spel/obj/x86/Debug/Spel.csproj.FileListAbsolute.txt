@@ -23,3 +23,28 @@ C:\Users\Erik\Documents\Spel\Spel\Spel\obj\x86\Debug\Spel.csprojResolveAssemblyR
 C:\Users\Erik\Documents\Spel\Spel\Spel\obj\x86\Debug\Spel.csproj.CoreCompileInputs.cache
 C:\Users\Erik\Documents\Spel\Spel\Spel\obj\x86\Debug\Spel.exe
 C:\Users\Erik\Documents\Spel\Spel\Spel\obj\x86\Debug\Spel.pdb
+C:\Projects\C# projects\Spel\Spel\Spel\bin\Windows\x86\Debug\Content\Sprites\Player\player.xnb
+C:\Projects\C# projects\Spel\Spel\Spel\bin\Windows\x86\Debug\Spel.exe
+C:\Projects\C# projects\Spel\Spel\Spel\bin\Windows\x86\Debug\Spel.pdb
+C:\Projects\C# projects\Spel\Spel\Spel\bin\Windows\x86\Debug\MonoGame.Framework.dll
+C:\Projects\C# projects\Spel\Spel\Spel\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+C:\Projects\C# projects\Spel\Spel\Spel\bin\Windows\x86\Debug\SharpDX.dll
+C:\Projects\C# projects\Spel\Spel\Spel\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+C:\Projects\C# projects\Spel\Spel\Spel\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+C:\Projects\C# projects\Spel\Spel\Spel\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+C:\Projects\C# projects\Spel\Spel\Spel\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+C:\Projects\C# projects\Spel\Spel\Spel\bin\Windows\x86\Debug\SharpDX.XInput.dll
+C:\Projects\C# projects\Spel\Spel\Spel\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
+C:\Projects\C# projects\Spel\Spel\Spel\bin\Windows\x86\Debug\MonoGame.Framework.xml
+C:\Projects\C# projects\Spel\Spel\Spel\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+C:\Projects\C# projects\Spel\Spel\Spel\bin\Windows\x86\Debug\SharpDX.xml
+C:\Projects\C# projects\Spel\Spel\Spel\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+C:\Projects\C# projects\Spel\Spel\Spel\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+C:\Projects\C# projects\Spel\Spel\Spel\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+C:\Projects\C# projects\Spel\Spel\Spel\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+C:\Projects\C# projects\Spel\Spel\Spel\bin\Windows\x86\Debug\SharpDX.XInput.xml
+C:\Projects\C# projects\Spel\Spel\Spel\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+C:\Projects\C# projects\Spel\Spel\Spel\obj\x86\Debug\Spel.csprojResolveAssemblyReference.cache
+C:\Projects\C# projects\Spel\Spel\Spel\obj\x86\Debug\Spel.csproj.CoreCompileInputs.cache
+C:\Projects\C# projects\Spel\Spel\Spel\obj\x86\Debug\Spel.exe
+C:\Projects\C# projects\Spel\Spel\Spel\obj\x86\Debug\Spel.pdb

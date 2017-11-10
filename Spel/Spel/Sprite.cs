@@ -13,7 +13,7 @@ namespace Spel
     {
 
         //The asset name for the Sprite's Texture
-        public string playerTexture;
+        public string spriteTexture;
 
         //The Size of the Sprite (with scale applied)
         public Rectangle Size;
@@ -41,7 +41,7 @@ namespace Spel
         public void LoadContent(ContentManager theContentManager, string PlayerTexture)
         {
             mSpriteTexture = theContentManager.Load<Texture2D>(PlayerTexture);
-            playerTexture = PlayerTexture;
+            spriteTexture = PlayerTexture;
             Size = new Rectangle(0, 0, (int)(mSpriteTexture.Width * Scale), (int)(mSpriteTexture.Height * Scale));
         }
 

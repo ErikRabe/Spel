@@ -56,23 +56,23 @@ namespace Spel
                 mSpeed = Vector2.Zero;
                 mDirection = Vector2.Zero;
 
-                if (aCurrentKeyboardState.IsKeyDown(Keys.Left) == true)
+                if (aCurrentKeyboardState.IsKeyDown(Keys.Left) || aCurrentKeyboardState.IsKeyDown(Keys.A))
                 {
                     mSpeed.X = PLAYER_SPEED;
                     mDirection.X = MOVE_LEFT;
                 }
-                else if (aCurrentKeyboardState.IsKeyDown(Keys.Right) == true)
+                else if (aCurrentKeyboardState.IsKeyDown(Keys.Right) || aCurrentKeyboardState.IsKeyDown(Keys.D))
                 {
                     mSpeed.X = PLAYER_SPEED;
                     mDirection.X = MOVE_RIGHT;
                 }
 
-                if (aCurrentKeyboardState.IsKeyDown(Keys.Up) == true)
+                if (aCurrentKeyboardState.IsKeyDown(Keys.Up) || aCurrentKeyboardState.IsKeyDown(Keys.W))
                 {
                     mSpeed.Y = PLAYER_SPEED;
                     mDirection.Y = MOVE_UP;
                 }
-                else if (aCurrentKeyboardState.IsKeyDown(Keys.Down) == true)
+                else if (aCurrentKeyboardState.IsKeyDown(Keys.Down) || aCurrentKeyboardState.IsKeyDown(Keys.S))
                 {
                     mSpeed.Y = PLAYER_SPEED;
                     mDirection.Y = MOVE_DOWN;
