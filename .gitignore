@@ -1,1 +1,4 @@
-Spel\.vs
+#Ignorerade filer
+
+*.sou
+*.ide
