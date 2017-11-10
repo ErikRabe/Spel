@@ -11,6 +11,9 @@ namespace Spel
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Vector2 mPosition = new Vector2(0, 0);
+        Texture2D mSpriteTexture;
+
 
         public Game1()
         {
@@ -40,6 +43,10 @@ namespace Spel
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            mSpriteTexture = this.Content.Load<Texture2D>("Sprites/Player/Player");
+
+
+
             // TODO: use this.Content to load your game content here
         }
 
@@ -61,6 +68,7 @@ namespace Spel
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
+     
 
             // TODO: Add your update logic here
 
@@ -75,7 +83,13 @@ namespace Spel
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
+            spriteBatch.Begin();
+            spriteBatch.Draw(mSpriteTexture, mPosition, Color.White);
+            spriteBatch.End();
+
+
             // TODO: Add your drawing code here
+
 
             base.Draw(gameTime);
         }
