@@ -84,8 +84,12 @@ namespace Spel
                     velocity.X += speed.X;
                     vector.X += speed.X;
                     dir = 1;
-                    
-           
+                    collisionR = false;
+                    collisionD = false;
+                    collisionU = false;
+                    collisionL = false;
+
+
 
 
 
@@ -97,6 +101,10 @@ namespace Spel
                     vector.X -= speed.X;
                     velocity.X -= speed.X;
                     dir = 2;
+                    collisionR = false;
+                    collisionD = false;
+                    collisionU = false;
+                    collisionL = false;
 
 
                 }
@@ -110,6 +118,10 @@ namespace Spel
                     velocity.Y += speed.Y;
                     vector.Y -= speed.Y;
                     dir = 3;
+                    collisionR = false;
+                    collisionD = false;
+                    collisionU = false;
+                    collisionL = false;
 
                 }
             }
@@ -120,12 +132,35 @@ namespace Spel
                     vector.Y += speed.Y;
                     velocity.Y += speed.Y;
                     dir = 4;
-
+                    collisionR = false;
+                    collisionD = false;
+                    collisionU = false;
+                    collisionL = false;
 
                 }
             }
 
-            if (vector.X < 0)
+            if (vector.Y <= window.ClientBounds.Height - texture.Height && vector.Y >= 0 && vector.X <= window.ClientBounds.Width - texture.Width / 2 && vector.X >= 0)
+            {
+                if (keyboardState.IsKeyDown(Keys.Up) && collisionU == false && keyboardState.IsKeyDown(Keys.Left) && collisionL == false || keyboardState.IsKeyDown(Keys.W) && collisionU == false && keyboardState.IsKeyDown(Keys.A) && collisionL == false)
+                {
+                    dir = 23;
+                }
+                if (keyboardState.IsKeyDown(Keys.Down) && collisionD == false && keyboardState.IsKeyDown(Keys.Left) && collisionL == false || keyboardState.IsKeyDown(Keys.S) && collisionU == false && keyboardState.IsKeyDown(Keys.A) && collisionL == false)
+                {
+                    dir = 24;
+                }
+                if (keyboardState.IsKeyDown(Keys.Up) && collisionU == false && keyboardState.IsKeyDown(Keys.Right) && collisionR == false || keyboardState.IsKeyDown(Keys.W) && collisionU == false && keyboardState.IsKeyDown(Keys.D) && collisionL == false)
+                {
+                    dir = 13;
+                }
+                if (keyboardState.IsKeyDown(Keys.Down) && collisionD == false && keyboardState.IsKeyDown(Keys.Right) && collisionR == false || keyboardState.IsKeyDown(Keys.S) && collisionU == false && keyboardState.IsKeyDown(Keys.D) && collisionL == false)
+                {
+                    dir = 14;
+                }
+            }
+
+                if (vector.X < 0)
                 vector.X = 0;
             if (vector.X > window.ClientBounds.Width - texture.Width / 2)
             {
