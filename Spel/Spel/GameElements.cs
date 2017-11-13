@@ -4,6 +4,9 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Media;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 
 namespace Spel
@@ -19,8 +22,11 @@ namespace Spel
         static GameTime lastTime;
         static Background background;
         static Player player;
+        static Wall wall;
+        static List<Wall> greyWalls;
         public static SoundEffect effect;
         public static State currentState;
+       
 
 
 
@@ -36,8 +42,8 @@ namespace Spel
             // TODO: Add your initialization logic here
 
 
+            greyWalls = new List<Wall>();
 
-          
         }
 
         /// <summary>
@@ -52,8 +58,8 @@ namespace Spel
 
             player = new Player(content.Load<Texture2D>("Sprites/Player/Player"), 0, 0, 4f, 4f);
             background = new Background(content.Load<Texture2D>("Sprites/Background/Background"), window);
-
-
+            wall = new Wall(content.Load<Texture2D>("Sprites/Wall/Wall1"), 150, 150, 0f, 0f);
+          
 
 
 
@@ -84,8 +90,39 @@ namespace Spel
                 return State.Quit;
             }
 
+
+
+            if (wall.CheckCollision(player) && player.dir == 1)
+            {
+                player.collisionR = true;
+            }
+            if (wall.CheckCollision(player) && player.dir == 2)
+            {
+                player.collisionL = true;
+            }
+            if (wall.CheckCollision(player) && player.dir == 3)
+            {
+                player.collisionU = true;
+            }
+            if (wall.CheckCollision(player) && player.dir == 4)
+            {
+                player.collisionD = true;
+            }
+            if (!wall.CheckCollision(player))
+            {
+                player.collisionR = false;
+                player.collisionD = false;
+                player.collisionU = false;
+                player.collisionL = false;
+            }
+
+
+
+
+
             background.Update(window);
             player.Update(window, gameTime, effect);
+            wall.Update(window, gameTime, effect);
             return State.Run;
         }
 
@@ -98,6 +135,7 @@ namespace Spel
         {
             background.Draw(spriteBatch);
             player.Draw(spriteBatch);
+            wall.Draw(spriteBatch);
 
 
             if (lastTime == null)

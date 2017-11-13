@@ -23,6 +23,7 @@ namespace Spel
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Texture2D player;
+        Texture2D wall;
 
         public Game1()
         {
@@ -58,6 +59,7 @@ namespace Spel
             spriteBatch = new SpriteBatch(GraphicsDevice);
             GameElements.LoadContent(Content, Window);
             player = Content.Load<Texture2D>("Sprites/Player/Player");
+            wall = Content.Load<Texture2D>("Sprites/Wall/Wall1");
 
 
 
