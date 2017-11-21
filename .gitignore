@@ -4,4 +4,4 @@ Spel/Spel/obj/
 Spel/Spel/bin/
 
 *.sou
-.vs/*
+Spel/.vs/

@@ -17,6 +17,15 @@ namespace Spel
         double frameBuffer = 0;
         double animationTime = 0.05;
         bool direction = false;
+        public bool collisionR = false;
+        public bool collisionL = false;
+        public bool collisionU = false;
+        public bool collisionD = false;
+        public float playerSpeedX = 0;
+        public float playerSpeedY = 0;
+
+        public int dir;
+
         SpriteEffects fL = SpriteEffects.FlipHorizontally;
 
 
@@ -69,41 +78,89 @@ namespace Spel
 
             if (vector.X <= window.ClientBounds.Width - texture.Width / 2 && vector.X >= 0)
             {
-                if (keyboardState.IsKeyDown(Keys.Right) || keyboardState.IsKeyDown(Keys.D))
+                if (keyboardState.IsKeyDown(Keys.Right) && collisionR == false || keyboardState.IsKeyDown(Keys.D) && collisionR == false)
                 {
 
                     velocity.X += speed.X;
                     vector.X += speed.X;
+                    dir = 1;
+                    collisionR = false;
+                    collisionD = false;
+                    collisionU = false;
+                    collisionL = false;
+
+
+
+
 
                 }
-                if (keyboardState.IsKeyDown(Keys.Left) || keyboardState.IsKeyDown(Keys.A))
+
+                if (keyboardState.IsKeyDown(Keys.Left) && collisionL == false || keyboardState.IsKeyDown(Keys.A) && collisionL == false)
                 {
 
                     vector.X -= speed.X;
                     velocity.X -= speed.X;
+                    dir = 2;
+                    collisionR = false;
+                    collisionD = false;
+                    collisionU = false;
+                    collisionL = false;
+
+
                 }
             }
 
             if (vector.Y <= window.ClientBounds.Height - texture.Height && vector.Y >= 0)
             {
 
-                if (keyboardState.IsKeyDown(Keys.Up) || keyboardState.IsKeyDown(Keys.W))
+                if (keyboardState.IsKeyDown(Keys.Up) && collisionU == false || keyboardState.IsKeyDown(Keys.W) && collisionU == false)
                 {
                     velocity.Y += speed.Y;
                     vector.Y -= speed.Y;
+                    dir = 3;
+                    collisionR = false;
+                    collisionD = false;
+                    collisionU = false;
+                    collisionL = false;
+
                 }
             }
             if (vector.Y <= window.ClientBounds.Height - texture.Height && vector.Y >= 0)
             {
-                if (keyboardState.IsKeyDown(Keys.Down) || keyboardState.IsKeyDown(Keys.S))
+                if (keyboardState.IsKeyDown(Keys.Down) && collisionD == false || keyboardState.IsKeyDown(Keys.S) && collisionD == false)
                 {
                     vector.Y += speed.Y;
                     velocity.Y += speed.Y;
+                    dir = 4;
+                    collisionR = false;
+                    collisionD = false;
+                    collisionU = false;
+                    collisionL = false;
 
                 }
             }
 
-            if (vector.X < 0)
+            if (vector.Y <= window.ClientBounds.Height - texture.Height && vector.Y >= 0 && vector.X <= window.ClientBounds.Width - texture.Width / 2 && vector.X >= 0)
+            {
+                if (keyboardState.IsKeyDown(Keys.Up) && collisionU == false && keyboardState.IsKeyDown(Keys.Left) && collisionL == false || keyboardState.IsKeyDown(Keys.W) && collisionU == false && keyboardState.IsKeyDown(Keys.A) && collisionL == false)
+                {
+                    dir = 23;
+                }
+                if (keyboardState.IsKeyDown(Keys.Down) && collisionD == false && keyboardState.IsKeyDown(Keys.Left) && collisionL == false || keyboardState.IsKeyDown(Keys.S) && collisionU == false && keyboardState.IsKeyDown(Keys.A) && collisionL == false)
+                {
+                    dir = 24;
+                }
+                if (keyboardState.IsKeyDown(Keys.Up) && collisionU == false && keyboardState.IsKeyDown(Keys.Right) && collisionR == false || keyboardState.IsKeyDown(Keys.W) && collisionU == false && keyboardState.IsKeyDown(Keys.D) && collisionL == false)
+                {
+                    dir = 13;
+                }
+                if (keyboardState.IsKeyDown(Keys.Down) && collisionD == false && keyboardState.IsKeyDown(Keys.Right) && collisionR == false || keyboardState.IsKeyDown(Keys.S) && collisionU == false && keyboardState.IsKeyDown(Keys.D) && collisionL == false)
+                {
+                    dir = 14;
+                }
+            }
+
+                if (vector.X < 0)
                 vector.X = 0;
             if (vector.X > window.ClientBounds.Width - texture.Width / 2)
             {

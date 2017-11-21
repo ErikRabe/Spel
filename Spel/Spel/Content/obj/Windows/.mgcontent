@@ -6,5 +6,6 @@
   <SourceFiles>
     <File>C:/Projects/C# projects/Spel/Spel/Spel/Content/Sprites/Player/player.png</File>
     <File>C:/Projects/C# projects/Spel/Spel/Spel/Content/Sprites/Background/Background.png</File>
+    <File>C:/Projects/C# projects/Spel/Spel/Spel/Content/Sprites/Wall/Wall1.png</File>
   </SourceFiles>
 </SourceFileCollection>
