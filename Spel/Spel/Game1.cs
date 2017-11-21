@@ -19,7 +19,6 @@ namespace Spel
     public class Game1 : Microsoft.Xna.Framework.Game
     {
 
-
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Texture2D player;
@@ -61,9 +60,6 @@ namespace Spel
             player = Content.Load<Texture2D>("Sprites/Player/Player");
             wall = Content.Load<Texture2D>("Sprites/Wall/Wall1");
 
-
-
-
             // TODO: use this.Content to load your game content here
         }
 
@@ -84,26 +80,25 @@ namespace Spel
         protected override void Update(GameTime gameTime)
         {
 
-
             // Allows the game to exit
+
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                this.Exit();
+            {
+                Exit();
+            }
             switch (GameElements.currentState)
             {
                 case GameElements.State.Run:
-                    GameElements.currentState =
-                     GameElements.RunUpdate(Content, Window, gameTime);
-                    break;
+                    {
+                        GameElements.currentState = GameElements.RunUpdate(Content, Window, gameTime);
+                        break;
+                    }
                 case GameElements.State.Quit:
-                    this.Exit();
-                    break;
-
-
-
+                    {
+                        Exit();
+                        break;
+                    }
             }
-
-
-
 
             base.Update(gameTime);
 
@@ -122,9 +117,6 @@ namespace Spel
 
             spriteBatch.Begin();
 
-
-
-
             switch (GameElements.currentState)
             {
                 case GameElements.State.Run:
@@ -136,11 +128,6 @@ namespace Spel
             spriteBatch.End();
 
             base.Draw(gameTime);
-
-
-
-
-
 
         }
     }

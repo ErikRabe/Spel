@@ -160,7 +160,7 @@ namespace Spel
                 }
             }
 
-                if (vector.X < 0)
+            if (vector.X < 0)
                 vector.X = 0;
             if (vector.X > window.ClientBounds.Width - texture.Width / 2)
             {
