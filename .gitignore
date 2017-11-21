@@ -1,4 +1,7 @@
 #Ignorerade filer
 
+Spel/Spel/obj/
+Spel/Spel/bin/
+
 *.sou
 .vs/*
